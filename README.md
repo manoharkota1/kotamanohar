@@ -4,7 +4,7 @@ Personal portfolio for Kota Manohar, a Software Engineer and AI/ML Engineer. It 
 
 ## Live site
 
-[https://kotamanohar.vercel.app](https://kotamanohar.vercel.app)
+[https://kotamanohar.vercel.app](https://kotamanohar.vercel.app)[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://kotamanohar.vercel.app)
 
 ## Tech stack
 
