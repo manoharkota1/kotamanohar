@@ -24,7 +24,7 @@ export function About() {
           <motion.div initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.7, ease }}><DeveloperPortrait /></motion.div>
 
           <div className="about-content">
-            <motion.p className="about-copy" initial={reduceMotion ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.6, delay: 0.12, ease }}>I&apos;m Kota, a Software Engineer and AI/ML Engineer who builds full-stack products, data-driven platforms, and applied machine-learning systems. I care about thoughtful architecture, clean implementation, and technology that solves a real problem.</motion.p>
+            <motion.p className="about-copy" initial={reduceMotion ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.6, delay: 0.12, ease }}>I&apos;m Manohar, a Software Engineer and AI/ML Engineer who builds full-stack products, data-driven platforms, and applied machine-learning systems. I care about thoughtful architecture, clean implementation, and technology that solves a real problem.</motion.p>
             <div className="about-principles">
               {principles.map((principle, index) => (
                 <motion.article key={principle.number} className="about-principle" initial={reduceMotion ? false : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.5, delay: 0.18 + index * 0.08, ease }}>
