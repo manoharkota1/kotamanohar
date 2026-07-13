@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-// @ts-expect-error CSS imports are handled by Next.js.
 import "./globals.css";
 import { Providers } from "./providers";
 import { Geist } from "next/font/google";
@@ -19,7 +18,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="light"
+      data-theme="dark"
       suppressHydrationWarning
       className={cn("font-sans", geist.variable)}
     >

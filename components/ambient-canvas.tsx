@@ -4,9 +4,15 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
 
 function Orb() {
   const mesh = useRef<THREE.Mesh>(null);
+  const { lightMode } = useSelector((state: RootState) => state.interface);
+
+  // Light Mode Accent: Indigo (#4f46e5). Dark Mode Accent: Apple Sky Link Blue (#2997ff).
+  const accentColor = lightMode ? "#4f46e5" : "#2997ff";
 
   useFrame((state) => {
     if (!mesh.current) return;
@@ -18,7 +24,7 @@ function Orb() {
     <Float speed={0.8} rotationIntensity={0.25} floatIntensity={0.7}>
       <mesh ref={mesh} position={[2.6, -1.8, -6]}>
         <icosahedronGeometry args={[1.35, 2]} />
-        <meshBasicMaterial color="#c9f22a" wireframe transparent opacity={0.055} />
+        <meshBasicMaterial color={accentColor} wireframe transparent opacity={0.075} />
       </mesh>
     </Float>
   );

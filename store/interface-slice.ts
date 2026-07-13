@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const interfaceSlice = createSlice({
   name: "interface",
-  initialState: { menuOpen: false, lightMode: true },
+  initialState: { menuOpen: false, lightMode: false },
   reducers: {
     toggleMenu: (state) => { state.menuOpen = !state.menuOpen; },
     closeMenu: (state) => { state.menuOpen = false; },

@@ -31,7 +31,7 @@ export function DeveloperPortrait() {
     <div className="developer-portrait" ref={frameRef} onPointerMove={handlePointerMove} onPointerLeave={resetPointer}>
       <motion.div className="developer-portrait__card" style={reduceMotion ? undefined : { rotateX, rotateY }}>
         <div className="developer-portrait__photo">
-          <Image src="/images/manohar-portrait.jpeg" alt="Kota Manohar" fill sizes="(max-width: 700px) 86vw, 32vw" priority={false} />
+          <Image src="/images/manohar-pixel.png" alt="Kota Manohar" fill sizes="(max-width: 700px) 86vw, 32vw" priority={false} />
         </div>
         <div className="developer-portrait__grid" aria-hidden="true" />
         <span className="developer-portrait__label">KM / Engineering</span>
