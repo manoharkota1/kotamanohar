@@ -89,12 +89,8 @@ function SpectraPreview() {
 
 function ProjectInterface({ project }: { project: Project }) {
   switch (project.id) {
-    case "signalwatch-platform": return <PulsePreview />;
-    case "knowledge-copilot": return <NovaPreview />;
-    case "commerce-intelligence": return <MarketplacePreview />;
-    case "motion-coach": return <FitFlowPreview />;
-    case "modelops-studio": return <CmsPreview />;
-    case "developer-platform": return <SpectraPreview />;
+    case "distributed-chat-application": return <NovaPreview />;
+    case "cloud-pattern-analysis": return <PulsePreview />;
     default: return null;
   }
 }
@@ -111,7 +107,7 @@ export function ProjectPreview({ project, featured = false }: ProjectPreviewProp
       <WindowChrome project={project}>
         <ProjectInterface project={project} />
       </WindowChrome>
-      <div className="project-preview__label"><span>{project.category}</span><span>{project.status}</span></div>
+      <div className="project-preview__label"><span>{project.category}</span></div>
     </div>
   );
 }

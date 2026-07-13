@@ -5,25 +5,18 @@ import { useState } from "react";
 
 const chapters = [
   {
-    period: "Build",
-    title: "Production software",
-    kind: "Software engineering",
-    copy: "Building well-structured applications from the interface to the backend, with APIs, databases, and services designed to be clear, secure, and maintainable.",
-    focus: ["TypeScript", "Backend APIs", "Cloud-ready systems"],
+    period: "Apr 2025 — Jul 2025",
+    title: "Full Stack Developer Intern",
+    kind: "Farview Global · Hyderabad, Telangana",
+    copy: "Developed and shipped full-stack web features with React, Next.js, Node.js, Express, MongoDB, and DynamoDB. Built reusable UI with Redux and Context API, implemented JWT-based access control, and deployed AWS services using Lambda, S3, RDS, EC2, Elastic Beanstalk, and CloudFront.",
+    focus: ["React", "Next.js", "Node.js", "AWS", "MongoDB"],
   },
   {
-    period: "Model",
-    title: "Applied intelligence",
-    kind: "AI & machine learning",
-    copy: "Taking models from experimentation to useful product capabilities: data preparation, evaluation, retrieval, inference, and trustworthy user-facing experiences.",
-    focus: ["Python", "LLM systems", "Model evaluation"],
-  },
-  {
-    period: "Operate",
-    title: "Reliable delivery",
-    kind: "Systems that keep improving",
-    copy: "Treating deployment, observability, testing, and iteration as part of the build—so software remains fast, understandable, and dependable after launch.",
-    focus: ["Testing", "Observability", "Performance"],
+    period: "May 2023 — Jul 2023",
+    title: "Data Science Intern",
+    kind: "ArchOver Solutions · Khammam, Telangana",
+    copy: "Developed and evaluated machine-learning and deep-learning models for predictive analytics. Performed data preprocessing, exploratory analysis, feature engineering, and visualization; then presented findings through dashboards to support informed decisions.",
+    focus: ["Python", "Machine Learning", "Deep Learning", "Data Analysis"],
   },
 ];
 
@@ -38,8 +31,8 @@ export function Experience() {
       <div className="experience-shell">
         <div className="experience-intro">
           <motion.p className="section-eyebrow" initial={reduceMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, ease }}>03 / Experience</motion.p>
-          <motion.h2 id="experience-heading" initial={reduceMotion ? false : { opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.7, delay: 0.06, ease }}>From robust code to <em>useful intelligence.</em></motion.h2>
-          <motion.p initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.55, delay: 0.14, ease }}>The work is about turning difficult problems into software people can depend on—then using data and AI where it creates real leverage.</motion.p>
+          <motion.h2 id="experience-heading" initial={reduceMotion ? false : { opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.7, delay: 0.06, ease }}>Experience building <em>useful software.</em></motion.h2>
+          <motion.p initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.55, delay: 0.14, ease }}>Full-stack engineering and data science experience across product development, cloud deployment, analytics, and machine learning.</motion.p>
         </div>
 
         <div className="experience-ledger">

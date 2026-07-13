@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+    <html lang="en" data-theme="light" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
       <body>
         <Providers>{children}</Providers>
       </body>

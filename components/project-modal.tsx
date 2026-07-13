@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Github } from "lucide-react";
+import { X, ExternalLink, Github, ArrowDownRight, Check } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { ProjectPreview } from "./project-preview";
 
@@ -12,6 +12,9 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const hasDemo = Boolean(project?.demoUrl && project.demoUrl !== "#");
+  const hasGithub = Boolean(project?.githubUrl && project.githubUrl !== "#");
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -30,97 +33,113 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     };
   }, [project, handleKeyDown]);
 
+  const handleFocusTrap = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab" || !modalRef.current) return;
+    const focusable = modalRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <AnimatePresence>
       {project && (
         <motion.div
-          className="project-modal-overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          onClick={onClose}
+          className="case-study"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 18 }}
+          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           role="dialog"
           aria-modal="true"
           aria-label={`${project.title} project details`}
         >
           <motion.div
-            className="project-modal"
-            initial={{ opacity: 0, scale: 0.92, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 30 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              type="button"
-              className="project-modal__close"
-              onClick={onClose}
-              aria-label="Close project details"
+            ref={modalRef}
+            className="case-study__page"
+            onKeyDown={handleFocusTrap}
+            tabIndex={-1}
             >
-              <X size={20} strokeWidth={1.8} />
-            </button>
-
-            {/* Preview */}
-            <div className="project-modal__preview"><ProjectPreview project={project} /></div>
-
-            {/* Content */}
-            <div className="project-modal__content">
-              {/* Header */}
-              <div className="project-modal__header">
-                <span className="project-modal__category">{project.category}</span>
-                <h2 className="project-modal__title">{project.title}</h2>
-                <p className="project-modal__desc">{project.longDescription}</p>
-              </div>
-
-              {/* Features */}
-              <div className="project-modal__section">
-                <h3>Key Features</h3>
-                <ul className="project-modal__list">
-                  {project.features.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tech Stack */}
-              <div className="project-modal__section">
-                <h3>Tech Stack</h3>
-                <div className="project-stack">
-                  {project.tech.map((t) => (
-                    <span key={t}>{t}</span>
-                  ))}
+              <header className="case-study__topbar">
+                <div><span>Case study</span><b>{project.category}</b></div>
+                <div className="case-study__actions">
+                  {hasDemo && <a href={project.demoUrl} className="case-study__live" target="_blank" rel="noopener noreferrer"><ExternalLink size={15} /> View live</a>}
+                  <button type="button" className="case-study__close" onClick={onClose} aria-label="Close case study" autoFocus><X size={18} strokeWidth={1.8} /></button>
                 </div>
-              </div>
+              </header>
 
-              {/* Challenges */}
-              <div className="project-modal__section">
-                <h3>Challenges</h3>
-                <p>{project.challenges}</p>
-              </div>
+              <main className="case-study__shell">
+                <section className="case-study__hero">
+                  <div className="case-study__hero-title">
+                    <p className="case-study__eyebrow">01 — Project overview</p>
+                    <h2>{project.title}</h2>
+                  </div>
+                  <div className="case-study__preview"><ProjectPreview project={project} /></div>
+                  <div className="case-study__summary">
+                    <p>{project.longDescription}</p>
+                    <a href="#case-study-overview" className="case-study__jump">Explore the build <ArrowDownRight size={16} /></a>
+                  </div>
+                </section>
 
-              {/* Role */}
-              <div className="project-modal__section">
-                <h3>My Role</h3>
-                <p>{project.role}</p>
-              </div>
+                <section id="case-study-overview" className="case-study__content">
+                  <aside className="case-study__facts" aria-label="Project details">
+                    <div><span>Role</span><p>{project.role}</p></div>
+                    <div><span>Timeline</span><p>{project.timeline}</p></div>
+                    <div><span>Core stack</span><p>{project.tech.slice(0, 3).join(" · ")}</p></div>
+                  </aside>
 
-              {/* Links */}
-              <div className="project-modal__links">
-                {project.demoUrl && (
-                  <a href={project.demoUrl} className="project-modal__link-btn" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
-                )}
-                {project.githubUrl && (
-                  <a href={project.githubUrl} className="project-modal__link-btn project-modal__link-btn--secondary" target="_blank" rel="noopener noreferrer">
-                    <Github size={16} /> GitHub
-                  </a>
-                )}
-              </div>
-            </div>
-          </motion.div>
+                  <div className="case-study__story">
+                  <section className="case-study__section case-study__section--lead">
+                    <p className="case-study__kicker">The challenge</p>
+                    <h3>{project.challenges}</h3>
+                  </section>
+
+                  <section className="case-study__section">
+                    <p className="case-study__kicker">How I approached it</p>
+                    <div className="case-study__approach">
+                      {project.approach.map((step, index) => (
+                        <article key={step.label}>
+                          <span>0{index + 1}</span>
+                          <h4>{step.label}</h4>
+                          <p>{step.detail}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section className="case-study__section case-study__section--split">
+                    <div>
+                      <p className="case-study__kicker">What shipped</p>
+                      <ul className="case-study__list">
+                        {project.features.map((feature) => <li key={feature}><Check size={14} />{feature}</li>)}
+                      </ul>
+                    </div>
+                    <div className="case-study__outcome">
+                      <p className="case-study__kicker">Outcome</p>
+                      <p>{project.outcome}</p>
+                    </div>
+                  </section>
+
+                  <section className="case-study__section case-study__section--footer">
+                    <div>
+                      <p className="case-study__kicker">Built with</p>
+                      <div className="project-stack">{project.tech.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                    </div>
+                    {hasGithub && <div className="case-study__links">
+                      <a href={project.githubUrl} className="case-study__source" target="_blank" rel="noopener noreferrer"><Github size={16} /> Source</a>
+                    </div>}
+                  </section>
+                  </div>
+                </section>
+              </main>
+            </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

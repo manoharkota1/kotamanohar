@@ -17,7 +17,7 @@ export function Contact() {
         <motion.div className="contact-main" initial={reduceMotion ? false : { opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.7, delay: 0.06, ease }}>
           <h2 id="contact-heading">Let&apos;s build what&apos;s <em>next.</em></h2>
           <p>Have a software challenge, an AI idea, or a data problem worth solving? Let&apos;s talk about what a reliable solution could look like.</p>
-          <MagneticLink href="mailto:hello@kotamanohar.com" className="contact-cta" ariaLabel="Send an email to Kota Manohar"><span>Start a conversation</span><ArrowUpRight size={22} strokeWidth={1.8} /></MagneticLink>
+          <MagneticLink href="mailto:manoharkota.in@gmail.com" className="contact-cta" ariaLabel="Send an email to Kota Manohar"><span>Start a conversation</span><ArrowUpRight size={22} strokeWidth={1.8} /></MagneticLink>
         </motion.div>
         <footer className="contact-footer">
           <span>© {new Date().getFullYear()} Kota Manohar</span>
