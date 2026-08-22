@@ -218,7 +218,9 @@ button { font: inherit; }
 .experience-entry__body { position: relative; z-index: 1; max-width: 780px; }
 .experience-entry__body > p:first-child { margin: 0; color: var(--color-ink-muted); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .experience-entry h3 { max-width: 650px; margin: .7rem 0 0; color: var(--color-ink); font-size: clamp(2.15rem, 4.8vw, 4.9rem); font-weight: 800; letter-spacing: -.08em; line-height: .9; }
-.experience-entry__body > p:nth-of-type(2) { max-width: 520px; margin: 1.4rem 0 0; color: var(--color-ink-muted); font-size: .98rem; line-height: 1.55; }
+.experience-entry__body > ul { display: grid; gap: .65rem; max-width: 680px; margin: 1.4rem 0 0; padding: 0; color: var(--color-ink-muted); font-size: .91rem; line-height: 1.5; }
+.experience-entry__body > ul li { position: relative; padding-left: 1rem; }
+.experience-entry__body > ul li::before { position: absolute; left: 0; color: var(--color-accent-primary); content: "•"; }
 .experience-entry__body > div { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.5rem; }
 .experience-entry__body > div span { border: 1px solid var(--color-border); border-radius: 999px; padding: .34rem .68rem; color: var(--color-ink-muted); font-size: .61rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; transition: border-color .25s ease, color .25s ease; }
 .experience-entry.is-active .experience-entry__body > div span, .experience-entry:hover .experience-entry__body > div span { border-color: var(--color-surface-3); color: var(--color-ink); }
@@ -291,7 +293,7 @@ button { font: inherit; }
   .experience-entry { grid-template-columns: 1fr; gap: 1.1rem; min-height: 0; padding: 1.25rem 0 3.2rem; }
   .experience-entry__meta { flex-direction: row; justify-content: space-between; }
   .experience-entry h3 { font-size: clamp(2.4rem, 11vw, 3.9rem); }
-  .experience-entry__body > p:nth-of-type(2) { margin-top: 1rem; font-size: .91rem; }
+  .experience-entry__body > ul { margin-top: 1rem; font-size: .85rem; }
   .experience-entry__number { font-size: 7rem; }
   .contact-section { padding-top: 4.5rem; }
   .contact-main { margin: 3.6rem 0 5.5rem; }
@@ -850,7 +852,7 @@ button { font: inherit; }
   .experience-ledger { margin-top: clamp(2.5rem, 5vh, 4.5rem); }
   .experience-entry { min-height: 0; padding: 1.1rem 0 clamp(1.8rem, 3vh, 2.6rem); }
   .experience-entry h3 { font-size: clamp(2rem, 3.5vw, 3.6rem); }
-  .experience-entry__body > p:nth-of-type(2) { margin-top: .85rem; font-size: .9rem; }
+  .experience-entry__body > ul { margin-top: .85rem; font-size: .8rem; gap: .45rem; }
   .experience-entry__body > div { margin-top: 1rem; }
 
   .contact-main { margin: clamp(2rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem); }

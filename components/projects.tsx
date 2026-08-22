@@ -52,7 +52,7 @@ export function Projects() {
       <section id="projects" className="projects-section" aria-labelledby="projects-heading">
         <div className="projects-shell">
           <motion.div initial={reduceMotion ? false : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.55, ease: easing }} className="projects-header">
-            <p className="section-eyebrow">02 / Selected Work</p>
+            <p className="section-eyebrow">03 / Selected Work</p>
             <h2 id="projects-heading" className="projects-title">A few things I&apos;ve <em>built.</em></h2>
             <p className="projects-intro">Two selected builds across real-time full-stack engineering and deep-learning research.</p>
           </motion.div>

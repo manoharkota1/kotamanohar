@@ -24,11 +24,11 @@ function PulsePreview() {
     <div className="preview-dashboard preview-dashboard--pulse">
       <aside className="preview-sidebar"><b>s</b><span /><span /><span /><span /></aside>
       <div className="preview-workspace">
-        <div className="preview-toolbar"><span>Model health</span><small>Last 24 hours</small></div>
+        <div className="preview-toolbar"><span>Segmentation evaluation</span><small>9-fold validation</small></div>
         <div className="preview-stat-grid">
-          <div><small>Inferences</small><strong>18.4k</strong><em>+18.2%</em></div>
-          <div><small>P95 latency</small><strong>82ms</strong><em>−12.8%</em></div>
-          <div><small>Drift score</small><strong>0.08</strong><em>Stable</em></div>
+          <div><small>Images</small><strong>5.5k+</strong><em>4 classes</em></div>
+          <div><small>Precision</small><strong>+14%</strong><em>Hybrid loss</em></div>
+          <div><small>Dice score</small><strong>+8.5%</strong><em>Thresholded</em></div>
         </div>
         <div className="preview-chart"><div className="preview-chart__grid" /><svg viewBox="0 0 480 130" preserveAspectRatio="none"><path d="M0 112 C36 92 52 102 82 77 S122 89 151 68 S195 91 229 58 S279 85 307 47 S361 62 386 32 S435 58 480 12" /></svg><span className="preview-chart__point" /></div>
       </div>
@@ -39,11 +39,11 @@ function PulsePreview() {
 function NovaPreview() {
   return (
     <div className="preview-nova">
-      <aside className="preview-nova__sidebar"><b>copilot</b><span>New conversation</span><i /><i /><i /></aside>
+      <aside className="preview-nova__sidebar"><b>relay</b><span>Active channels</span><i /><i /><i /></aside>
       <div className="preview-nova__chat">
-        <div className="preview-nova__heading"><span>Knowledge assistant</span><small>● Grounded</small></div>
-        <div className="preview-nova__messages"><p>What changed in the latest release?</p><p>I found three relevant sources. Here&apos;s the summary with supporting evidence.</p><p>What should I review first?</p><p>The strongest signal is the change in API error rates after deployment.</p></div>
-        <div className="preview-nova__input"><span>Ask your knowledge base</span><b>↑</b></div>
+        <div className="preview-nova__heading"><span>Engineering channel</span><small>● Connected</small></div>
+        <div className="preview-nova__messages"><p>Can you share the deployment status?</p><p>Message delivered to the release channel.</p><p>How is the service performing?</p><p>Median message delivery remains below 100ms.</p></div>
+        <div className="preview-nova__input"><span>Send a message</span><b>↑</b></div>
       </div>
     </div>
   );
