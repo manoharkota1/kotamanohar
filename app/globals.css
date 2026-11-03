@@ -884,6 +884,26 @@ button { font: inherit; }
   .experience-entry__body > ul { margin-top: .85rem; font-size: .8rem; gap: .45rem; }
   .experience-entry__body > div { margin-top: 1rem; }
 
+  .education-section, .certifications-section { min-height: auto; }
+  .education-card { display: block; margin-top: clamp(2rem, 4vh, 3.5rem); padding: 1.75rem 0; }
+  .education-list { gap: 1.5rem; }
+  .education-list article { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.5fr) auto; gap: 1rem 2rem; align-items: start; }
+  .education-list article + article { padding-top: 1.5rem; }
+  .education-list article > p { margin: .25rem 0 0; font-size: .62rem; }
+  .education-list article h2 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2.15rem); line-height: 1.05; }
+  .education-details { display: grid; gap: .35rem; min-width: 150px; }
+  .education-details p { font-size: .61rem; }
+  .education-details strong { font-size: .85rem; }
+  .certifications-section { padding-top: clamp(3.5rem, 6vh, 5rem); padding-bottom: clamp(3.5rem, 6vh, 5rem); }
+  .certifications-header { margin-top: clamp(2rem, 4vh, 3.5rem); }
+  .certifications-header h2 { font-size: clamp(2.8rem, 4.5vw, 4.8rem); }
+  .certifications-grid { margin-top: clamp(2rem, 4vh, 3.5rem); }
+  .certifications-grid article { min-height: 155px; padding: 1rem 1.1rem; }
+  .certifications-grid h3 { margin: 1.2rem 0 .45rem; font-size: .98rem; }
+  .certifications-grid p { font-size: .72rem; }
+  .certifications-grid strong { margin-top: .8rem; font-size: .62rem; }
   .contact-main { margin: clamp(2rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem); }
   .contact-main h2 { font-size: clamp(4rem, 7vw, 7.3rem); }
+  .contact-main > p { margin-top: 1.25rem; font-size: .92rem; }
+  .contact-cta { margin-top: 1.75rem; }
 }
