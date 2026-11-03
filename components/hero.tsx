@@ -40,8 +40,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.72, duration: 0.55 }}
           >
-            Backend &amp; AI Engineer <span aria-hidden="true">/</span> Software Engineer<br />
-            Building reliable systems, intelligent products, and resilient APIs.
+            Full Stack Developer Intern <span aria-hidden="true">/</span> Software Developer Intern<br />
+            Building performant web applications and intelligent products.
           </motion.p>
         </div>
         <motion.a href="#about" className="scroll-cue" aria-label="Scroll to about" animate={reduceMotion ? undefined : { y: [0, 7, 0] }} transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}>

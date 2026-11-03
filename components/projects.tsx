@@ -29,6 +29,7 @@ function ProjectCard({ project, index, onViewDetails }: { project: Project; inde
         </div>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
+        <div className="project-card__metrics">{project.metrics.map((metric) => <strong key={metric}>{metric}</strong>)}</div>
         <div className="project-stack" aria-label={`Technology stack: ${project.tech.join(", ")}`}>
           {project.tech.slice(0, 4).map((item) => <span key={item}>{item}</span>)}
           {project.tech.length > 4 && <span>+{project.tech.length - 4}</span>}

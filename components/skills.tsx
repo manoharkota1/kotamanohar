@@ -1,35 +1,37 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { BrainCircuit, Search, Workflow } from "lucide-react";
+import { BrainCircuit, Search } from "lucide-react";
 import LogoLoop from "./logo-loop";
 import {
   SiDocker,
-  SiLangchain,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
   SiPython,
   SiReact,
   SiRedis,
-  SiTailwindcss,
-  SiTypescript,
 } from "react-icons/si";
 
 const featuredSkills = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
   { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
   { node: <SiPython />, title: "Python", href: "https://www.python.org" },
   { node: <SiPostgresql />, title: "PostgreSQL", href: "https://www.postgresql.org" },
   { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
   { node: <SiRedis />, title: "Redis", href: "https://redis.io" },
-  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
   { node: <BrainCircuit />, title: "LLMs", href: "https://platform.openai.com/docs" },
-  { node: <Workflow />, title: "MCP", href: "https://modelcontextprotocol.io" },
   { node: <Search />, title: "RAG", href: "https://www.pinecone.io/learn/retrieval-augmented-generation/" },
-  { node: <SiLangchain />, title: "LangChain", href: "https://www.langchain.com" },
+];
+
+const skillGroups = [
+  ["Programming Languages", "Python", "JavaScript", "SQL"],
+  ["Core Computer Science", "Data Structures and Algorithms", "Object-Oriented Programming", "Problem-Solving", "Debugging"],
+  ["Software Development", "SDLC", "API Integration", "REST APIs", "Version Control"],
+  ["Web Technologies", "HTML", "CSS", "React.js", "Next.js", "FastAPI", "Node.js"],
+  ["Developer Tools", "Git", "GitHub", "VS Code", "Postman", "Linux"],
+  ["Generative AI", "LLMs", "Prompt Engineering", "RAG", "Embeddings", "Vector Databases", "Transformer Architecture"],
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -65,6 +67,7 @@ export function Skills() {
             )}
           />
         </motion.div>
+        <div className="skill-groups">{skillGroups.map(([title, ...items]) => <article key={title}><h3>{title}</h3><div>{items.map((item) => <span key={item}>{item}</span>)}</div></article>)}</div>
       </div>
     </section>
   );
